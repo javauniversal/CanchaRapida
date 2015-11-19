@@ -27,6 +27,37 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="zonaapp.co.cancharapida.Activities.ActMain" />
         </activity>
+        <activity
+            android:name=".Activities.ActMenu"
+            android:label="@string/title_activity_act_menu"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activities.ActReservas"
+            android:label="@string/title_activity_act_reservas"
+            android:parentActivityName=".Activities.ActMenu"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zonaapp.co.cancharapida.Activities.ActMenu" />
+        </activity>
+        <activity
+            android:name=".Activities.ActMisReservas"
+            android:label="@string/title_activity_act_mis_reservas"
+            android:parentActivityName=".Activities.ActMenu"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zonaapp.co.cancharapida.Activities.ActMenu" />
+        </activity>
+        <activity
+            android:name=".Activities.ActNoticias"
+            android:label="@string/title_activity_act_noticias"
+            android:parentActivityName=".Activities.ActMenu"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zonaapp.co.cancharapida.Activities.ActMenu" />
+        </activity>
     </application>
 
 </manifest>
