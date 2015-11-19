@@ -58,6 +58,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="zonaapp.co.cancharapida.Activities.ActMenu" />
         </activity>
+        <activity
+            android:name=".Activities.ActCalendario"
+            android:label="@string/title_activity_act_calendario"
+            android:parentActivityName=".Activities.ActReservas"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zonaapp.co.cancharapida.Activities.ActReservas" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="9dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancha"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:id="@+id/txtCancha"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha:"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:id="@+id/txtFecha" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora:"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:id="@+id/txtHora" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliente:"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="italic"
+        android:id="@+id/txtCliente" />
+
+
+
+</LinearLayout>

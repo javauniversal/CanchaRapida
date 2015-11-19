@@ -8,6 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import zonaapp.co.cancharapida.Entities.Reserva;
 import zonaapp.co.cancharapida.Entities.Usuarios;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -23,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         String sqlUsuario = "CREATE TABLE usuario (id integer primary key AUTOINCREMENT, nombre text, password text, correo text, telefono text)";
 
-        String sqlReserva = "CREATE TABLE reserva (id integer primary key AUTOINCREMENT, fechareserva text, idusuario int, idcancha int, hora text)";
+        String sqlReserva = "CREATE TABLE reserva (id integer primary key AUTOINCREMENT, fechareserva text, horareserva text, idusuario int, cancha text )";
 
         String sqlCanchas = "CREATE TABLE cancha (id integer primary key AUTOINCREMENT, nombre text, jugadores int, metros text )";
 
@@ -42,6 +46,48 @@ public class DBHelper extends SQLiteOpenHelper {
         this.onCreate(db);
 
     }
+
+    public boolean insertReserva(Reserva data){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        try {
+            values.put("fechareserva",data.getFechaData());
+            values.put("horareserva",data.getHoraData());
+            values.put("idusuario",data.getIdUser());
+            values.put("cancha",data.getCancha());
+
+            db.insert("reserva", null, values);
+        }catch (SQLiteConstraintException e){
+            Log.d("data", "failure to insert word,", e);
+            return false;
+        }
+
+        return true;
+    }
+
+    public List<Reserva> selectReservas(){
+
+        ArrayList<Reserva> reservaArrayList = new ArrayList<>();
+
+        String sql = "SELECT fechareserva, horareserva, usuario.nombre, cancha FROM reserva, usuario WHERE idusuario = usuario.id";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        Reserva reserva = null;
+        if (cursor.moveToFirst()) {
+            do {
+                reserva = new Reserva();
+                reserva.setFechaData(cursor.getString(0));
+                reserva.setHoraData(cursor.getString(1));
+                reserva.setNombreUsuario(cursor.getString(2));
+                reserva.setCancha(cursor.getString(3));
+                reservaArrayList.add(reserva);
+            } while(cursor.moveToNext());
+        }
+        return reservaArrayList;
+    }
+
 
     public boolean insertUsuario(Usuarios data){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -74,7 +120,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Usuarios selectUsuario(){
 
-        String sql = "SELECT nombre, correo, telefono FROM usuario";
+        String sql = "SELECT id, nombre, correo, telefono FROM usuario";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -82,6 +128,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 user = new Usuarios();
+                user.setId(Integer.parseInt(cursor.getString(0)));
                 user.setUsuario(cursor.getString(1));
                 user.setCorreo(cursor.getString(2));
                 user.setTelefono(cursor.getString(3));

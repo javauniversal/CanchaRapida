@@ -6,4 +6,5 @@
     <string name="title_activity_act_reservas">Reservas</string>
     <string name="title_activity_act_mis_reservas">Mis Reservas</string>
     <string name="title_activity_act_noticias">Noticias</string>
+    <string name="title_activity_act_calendario">Realizar la Reserva</string>
 </resources>
