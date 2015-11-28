@@ -66,6 +66,7 @@ public class ActRegistrarse extends AppCompatActivity {
                         Toast.makeText(ActRegistrarse.this, "El usuario fue registrado.", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(ActRegistrarse.this, ActMain.class));
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        finish();
                     }else {
                         Toast.makeText(ActRegistrarse.this, "Problemas al registrar el usuario.", Toast.LENGTH_LONG).show();
                         usuario.setText("");

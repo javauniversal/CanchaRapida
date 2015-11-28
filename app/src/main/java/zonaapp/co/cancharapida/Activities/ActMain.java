@@ -58,6 +58,7 @@ public class ActMain extends AppCompatActivity implements View.OnClickListener {
                     if (!mydb.validateLogin(usuarios)) {
                         startActivity(new Intent(ActMain.this, ActMenu.class));
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        finish();
                     }else{
                         Toast.makeText(ActMain.this, "USUARIO/PASSWORD INCORRECTO", Toast.LENGTH_LONG).show();
                     }

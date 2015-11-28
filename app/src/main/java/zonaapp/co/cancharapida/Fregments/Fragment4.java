@@ -129,6 +129,7 @@ public class Fragment4 extends Fragment implements
             Toast.makeText(getActivity(), "Su reserva esta generada, en el menu Mis reservas encontrara toda la información", Toast.LENGTH_LONG).show();
             startActivity(new Intent(getActivity(), ActMenu.class));
             getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            getActivity().finish();
         }else{
             Toast.makeText(getActivity(), "Problemas para hacer la Reserva intente mas tarde", Toast.LENGTH_LONG).show();
         }

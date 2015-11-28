@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="zonaapp.co.cancharapida.Activities.ActReservas"
+    android:background="@drawable/cancha_futbol"
     tools:showIn="@layout/layout_reservas">
 
     <RelativeLayout
