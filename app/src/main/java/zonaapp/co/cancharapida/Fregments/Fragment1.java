@@ -58,7 +58,9 @@ public class Fragment1 extends Fragment implements
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_1, container, false);
+
         btnReservar = (Button) view.findViewById(R.id.btnPeReserva);
         btnReservar.setOnClickListener(new View.OnClickListener() {
             @Override

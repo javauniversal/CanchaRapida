@@ -39,6 +39,8 @@ public class ActReservas extends AppCompatActivity {
                 tiposEquipos = (Spinner) findViewById(R.id.spinnerTiposParte);
                 ArrayAdapter<String> datosTipos = new ArrayAdapter<String>(ActReservas.this, R.layout.item_spinner, tiposPc);
                 tiposEquipos.setAdapter(datosTipos);
+
+
                 tiposEquipos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                         Object item = parent.getSelectedItem();
